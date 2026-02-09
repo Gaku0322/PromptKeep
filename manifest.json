@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Keep - AI Prompt Manager",
+  "version": "1.0",
+  "description": "AIチャット用のプロンプトを保存・管理・ワンクリックでコピー。",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Prompt Keep"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

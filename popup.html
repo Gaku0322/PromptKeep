@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Prompt Keep</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">Prompt Keep</div>
+    <div class="menu-buttons">
+      <button id="export-btn" class="secondary-btn" title="データを保存（JSON）">💾</button>
+      <button id="toggle-form-btn" class="primary-btn">＋ 新規</button>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="search-box" placeholder="キーワードやタグで検索...">
+  </div>
+
+  <div id="add-form" class="form-container" style="display: none;">
+    <input type="text" id="input-title" placeholder="タイトル (例: 翻訳用)">
+    <input type="text" id="input-tags" placeholder="タグ (カンマ区切り)">
+    <textarea id="input-content" placeholder="プロンプト本文を入力..."></textarea>
+    <div class="form-actions">
+      <button id="cancel-btn" class="text-btn">キャンセル</button>
+      <button id="save-btn" class="primary-btn">保存する</button>
+    </div>
+  </div>
+
+  <div id="prompt-list" class="list-container">
+    </div>
+
+  <div id="toast">クリップボードにコピーしました！</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

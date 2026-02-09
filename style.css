@@ -1,0 +1,172 @@
+:root {
+  --primary: #4a90e2;
+  --primary-hover: #357abd;
+  --bg: #f4f7f6;
+  --card-bg: #ffffff;
+  --text: #333333;
+  --sub-text: #666666;
+  --border: #dddddd;
+  --danger: #ff4d4f;
+  --tag-bg: #e6f7ff;
+  --tag-text: #1890ff;
+}
+
+/* ダークモード設定 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4a90e2;
+    --primary-hover: #6ab0ff;
+    --bg: #202124;
+    --card-bg: #292a2d;
+    --text: #e8eaed;
+    --sub-text: #9aa0a6;
+    --border: #3c4043;
+    --tag-bg: #172b4d;
+    --tag-text: #4a90e2;
+  }
+}
+
+body {
+  width: 400px;
+  margin: 0;
+  padding: 16px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+/* ヘッダー */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--text);
+}
+
+/* ボタン共通 */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+}
+.primary-btn:hover { background-color: var(--primary-hover); }
+
+.secondary-btn {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--sub-text);
+  padding: 6px 10px;
+}
+.secondary-btn:hover { background-color: rgba(128,128,128,0.1); }
+
+.text-btn { background: none; color: var(--sub-text); }
+.text-btn:hover { color: var(--text); }
+
+/* 入力エリア */
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  font-family: inherit;
+}
+textarea { height: 100px; resize: vertical; }
+input:focus, textarea:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+/* フォームコンテナ */
+.form-container {
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* リストアイテム（カード） */
+.item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  transition: transform 0.1s;
+}
+.item:hover { transform: translateY(-2px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+.item-title { font-weight: bold; font-size: 15px; }
+
+.item-tags { margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.item-preview {
+  font-size: 12px;
+  color: var(--sub-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+}
+.copy-btn { flex: 1; background-color: var(--primary); color: white; }
+.delete-btn { background-color: transparent; border: 1px solid var(--danger); color: var(--danger); }
+.delete-btn:hover { background-color: var(--danger); color: white; }
+
+/* トースト通知 */
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#toast.show { visibility: visible; opacity: 1; }
